@@ -17,7 +17,9 @@ def bissecao(a, b, erro, fxm) -> float:
             a = xm  # Novo intervalo
             fa = fxm    # Novo valor de f(a)
 
-    return xm   # Retorna o valor de x
+    return xk, k   # Retorna o valor de x e o número de chamadas
 
 if __name__ == "__main__":
-    print("Raiz:" ,bissecao(0, 1, 1e-10, 1))
+    raiz, n_repeticoes = bissecao(0, 1, 1e-10, 1)
+    print("Número de repetições:", n_repeticoes)
+    print("Raiz:", raiz)
