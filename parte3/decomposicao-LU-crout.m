@@ -1,3 +1,7 @@
+% O metodo resolve o sistema Ax = b em duas etapas
+% - Ly = b
+% - Ux = y
+
 % Na decomposicao LU de crout, nos calculamos coluna de L depois linha de U
 % No metodo de crout a diagonal de U recebe 1
 
