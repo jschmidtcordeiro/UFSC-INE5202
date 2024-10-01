@@ -47,8 +47,9 @@ b
 D = det(a)
 NC = cond(a)
 c = a \ b'; % Resolve o sistema linear
-% c(1) = exp(c(1));
-c = exp(c)
+c(1) = exp(c(1));
+% c = exp(c)
+c
 
 % Para plotar o grafico
 for k = 1:n

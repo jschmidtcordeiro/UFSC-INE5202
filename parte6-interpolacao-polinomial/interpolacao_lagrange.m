@@ -15,15 +15,15 @@ function interpolacao_lagrange
     % x = [-1 0 1];
     % y = [4; 1; -1];
 
-    x=[0.1 0.3 0.5 0.7];
-    y=[0.101 0.327 0.625 1.043];
+    x = [0.1 0.3 0.5 0.7];
+    y = [0.101 0.327 0.625 1.043];
 
     n = length(x);
 
     % Ponto
     % xx = 0.5;
     xx = 0.4;
-    
+
     px = Lag(x, y, n, xx)
 
     % % Grafico
@@ -59,8 +59,8 @@ function p = Lag(x, y, n, xx)
 
         end
 
-        L = num / den
-        p = p + y(i) * L;
+        L = num / den;
+        p = p + y(i) * L
     end
 
 end % End function Lag

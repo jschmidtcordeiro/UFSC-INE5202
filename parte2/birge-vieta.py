@@ -17,38 +17,37 @@ import math
 def birge_vieta(a, n, x0, erro) -> float:
 
     k = 0
-    b = []
-    c = []
+    b = [0] * n
+    c = [0] * (n-1)
+    R = 1
 
-    # Preencher fx
-    b.append(a[0])
-    for i in range(1, n):
-        b.append(b[i-1] * x0 + a[i])
+    # # Preencher fx
+    # b.append(a[0])
+    # for i in range(1, n):
+    #     b.append(b[i-1] * x0 + a[i])
 
-    # Preencher f'x
-    c.append(b[0])
-    for i in range(1, n-1): # Faco uma vez a menos, pois aqui estou calculando a derivada
-        c.append(c[i-1] * x0 + b[i])
+    # # Preencher f'x
+    # c.append(b[0])
+    # for i in range(1, n-1): # Faco uma vez a menos, pois aqui estou calculando a derivada
+    #     c.append(c[i-1] * x0 + b[i])
 
-    print("b:", b[-1])
-    print("c:", c)
 
-    while(abs(b[-1]) > erro):
+    while(abs(R) > erro):
         k += 1  # Contador de chamadas
-
-        xk = x0 - (b[-1] / c[-1])
         
         # Preencher fx
         b[0] = a[0]
         for i in range(1, n):
-            b[i] = (b[i-1] * xk + a[i])
+            b[i] = (b[i-1] * x0 + a[i])
 
         # Preencher f'x
         c[0] = b[0]
         for i in range(1, n-1): # Faco uma vez a menos, pois aqui estou calculando a derivada
-            c[i] = (c[i-1] * xk + b[i])
+            c[i] = (c[i-1] * x0 + b[i])
 
+        xk = x0 - (b[-1] / c[-1])
         x0 = xk
+        R = b[-1]
 
         print("Iteração:", k, "Valor de x:", x0)
         print("b:", b)
@@ -60,6 +59,7 @@ def birge_vieta(a, n, x0, erro) -> float:
     return  k   # Retorna o valor de x e o número de chamadas
 
 if __name__ == "__main__":
-    a = [1, 0, 2, -1]
-    n_repeticoes = birge_vieta(a, len(a), 1, 1e-10)
+    # a = [1, 0, 2, -1]
+    a = [3, -1, -1, 0, 1, 1]
+    n_repeticoes = birge_vieta(a, len(a), 1, 1e-8)
     print("Número de repetições:", n_repeticoes)

@@ -57,4 +57,4 @@ for i=(n - 1):-1:1
 end
 x
 % Residuo
-r = abs(b' - ca * x')
+% r = abs(b' - ca * x')

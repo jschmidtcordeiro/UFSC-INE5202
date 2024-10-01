@@ -45,6 +45,6 @@ dx = (b - a) / 2;
 % Funcao
 % F = (x.^3) * dx;
 % F = exp(x) * dx;
-F = 5 * (x.^3) + (x.^-1) * dx;
+F = (5 * (x.^3) + (x.^-1)) * dx;
 x
 Q = A * F'

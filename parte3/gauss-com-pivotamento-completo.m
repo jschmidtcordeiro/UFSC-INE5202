@@ -1,13 +1,16 @@
 % Metodo de Gauss com pivotamento completo
 % Nesse metodo serao efetuadas trocas de linhas, caso necessario
 
-clear
-clc
+% clear
+% clc
+format short
 
-a = [1 -1 1; 2 3 -1; -3 1 1];
-b = [1 4 -1];
+% a = [1 -1 1; 2 3 -1; -3 1 1];
+% b = [1 4 -1];
+a = [1 1 0 1; 2 1 -1 -1; -1 -2 3 -1; 3 -1 -1 2];
+b = [2 1 4 -3];
 n = length(b)
-o = [1 2 3]
+o = [1 2 3 4]
 
 for k=1:(n - 1)
     % Verificar o maior elemento em modulo da coluna
@@ -49,6 +52,7 @@ a
 b
 ca = a; % Para calcular o residuo
 cb = b; % Para calcular o residuo
+o % Vetor de ordenamento das trocas de linhas
 
 % Retrosubstituicao
 
